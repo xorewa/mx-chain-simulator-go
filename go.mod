@@ -220,7 +220,7 @@ replace github.com/multiversx/mx-chain-go => github.com/xorewa/mx-chain-go v0.0.
 
 replace github.com/multiversx/mx-chain-vm-common-go => github.com/xorewa/mx-chain-vm-common-go v0.0.0-20260605064913-2e81f7439680
 
-replace github.com/multiversx/mx-chain-vm-go => github.com/xorewa/mx-chain-vm-go v0.0.0-20260610180345-fb63c99c864e
+replace github.com/multiversx/mx-chain-vm-go => github.com/xorewa/mx-chain-vm-go v0.0.0-20260611070729-3b785f3cb4d7
 
 replace github.com/multiversx/mx-chain-storage-go => github.com/xorewa/mx-chain-storage-go v0.0.0-20260605055806-dc15dab3c238
 
