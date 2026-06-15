@@ -18,6 +18,9 @@
    # before it should be updated
    EconomicsMetricsCacheValidityDurationSec = 600 # 10 minutes
 
+   # BlockCacheDurationSec represents the maximum number of seconds a block is cached by the proxy
+   BlockCacheDurationSec = 60
+
    # BalancedObservers - if this flag is set to true, then the requests will be distributed equally between observers.
    # Otherwise, there are chances that only one observer from a shard will process the requests
    BalancedObservers = true
@@ -85,4 +88,3 @@
    ShardId = 4294967295
    Address = "http://127.0.0.1:8083"
    IsFallback = false
-
