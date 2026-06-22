@@ -12,11 +12,13 @@ RUN go build -o chainsimulator
 
 RUN mkdir -p /lib_amd64 /lib_arm64
 
-RUN cp /go/pkg/mod/github.com/multiversx/$(cat /multiversx/go.sum | grep mx-chain-vm-v | sort -n | tail -n -1 | awk -F '/' '{print$3}' | sed 's/ /@/g')/wasmer/libwasmer_linux_amd64.so /lib_amd64/
-RUN cp /go/pkg/mod/github.com/multiversx/$(cat /multiversx/go.sum | grep mx-chain-vm-go | sort -n | tail -n -1 | awk -F '/' '{print$3}' | sed 's/ /@/g')/wasmer2/libvmexeccapi.so /lib_amd64/
+RUN vm_v14_mod="$(go list -m -f '{{if .Replace}}{{.Replace.Path}}@{{.Replace.Version}}{{else}}{{.Path}}@{{.Version}}{{end}}' github.com/multiversx/mx-chain-vm-v1_4-go)" && \
+    cp "$(go env GOPATH)/pkg/mod/${vm_v14_mod}/wasmer/libwasmer_linux_amd64.so" /lib_amd64/ && \
+    cp "$(go env GOPATH)/pkg/mod/${vm_v14_mod}/wasmer/libwasmer_linux_arm64_shim.so" /lib_arm64/
 
-RUN cp /go/pkg/mod/github.com/multiversx/$(cat /multiversx/go.sum | grep mx-chain-vm-v | sort -n | tail -n -1 | awk -F '/' '{print$3}' | sed 's/ /@/g')/wasmer/libwasmer_linux_arm64_shim.so /lib_arm64/
-RUN cp /go/pkg/mod/github.com/multiversx/$(cat /multiversx/go.sum | grep mx-chain-vm-go | sort -n | tail -n -1 | awk -F '/' '{print$3}' | sed 's/ /@/g')/wasmer2/libvmexeccapi_arm.so /lib_arm64/
+RUN vm_exec_mod="$(go list -m -f '{{if .Replace}}{{.Replace.Path}}@{{.Replace.Version}}{{else}}{{.Path}}@{{.Version}}{{end}}' github.com/multiversx/mx-chain-vm-go)" && \
+    cp "$(go env GOPATH)/pkg/mod/${vm_exec_mod}/wasmer2/libvmexeccapi.so" /lib_amd64/ && \
+    cp "$(go env GOPATH)/pkg/mod/${vm_exec_mod}/wasmer2/libvmexeccapi_arm.so" /lib_arm64/
 
 
 FROM ubuntu:22.04
@@ -35,5 +37,4 @@ COPY --from=builder "/lib_${TARGETARCH}/*" "/lib/"
 CMD ["/bin/bash"]
 
 ENTRYPOINT ["./chainsimulator"]
-
 

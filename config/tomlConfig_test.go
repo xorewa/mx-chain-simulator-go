@@ -83,6 +83,12 @@ func TestBundledChainSimulatorConfigsContainSupernovaRequiredFields(t *testing.T
 	require.Equal(t, uint64(200), economicsConfig.FeeSettings.BlockCapacityOverestimationFactor)
 	require.Equal(t, uint64(10), economicsConfig.FeeSettings.PercentDecreaseLimitsStep)
 
+	systemSCConfig := chainConfig.SystemSmartContractsConfig{}
+	mustLoadToml(t, filepath.Join("..", "cmd", "chainsimulator", "config", "node", "config", "systemSmartContractsConfig.toml"), &systemSCConfig)
+	require.NotZero(t, systemSCConfig.StakingSystemSCConfig.UnBondPeriod)
+	require.Equal(t, uint64(2500), systemSCConfig.StakingSystemSCConfig.UnBondPeriodSupernova)
+	require.NotZero(t, systemSCConfig.StakingSystemSCConfig.UnBondPeriodInEpochs)
+
 	proxyCfg := proxyConfig.Config{}
 	mustLoadToml(t, filepath.Join("..", "cmd", "chainsimulator", "config", "proxy", "config", "config.toml"), &proxyCfg)
 	require.NotZero(t, proxyCfg.GeneralSettings.BlockCacheDurationSec)
