@@ -216,11 +216,11 @@ replace github.com/multiversx/mx-chain-proxy-go => github.com/xorewa/mx-chain-pr
 // the core-go it consumes; both must therefore come from xorewa.
 replace github.com/multiversx/mx-chain-core-go => github.com/xorewa/mx-chain-core-go v0.0.0-20260622185646-a558edf5ceda
 
-replace github.com/multiversx/mx-chain-go => github.com/xorewa/mx-chain-go v0.0.0-20260707084605-618c37a33172
+replace github.com/multiversx/mx-chain-go => github.com/xorewa/mx-chain-go v0.0.0-20260707091309-7fae9f61c86a
 
 replace github.com/multiversx/mx-chain-vm-common-go => github.com/xorewa/mx-chain-vm-common-go v0.0.0-20260707072202-5a2360b7250e
 
-replace github.com/multiversx/mx-chain-vm-go => github.com/xorewa/mx-chain-vm-go v0.0.0-20260707084605-88c66bdf79a9
+replace github.com/multiversx/mx-chain-vm-go => github.com/xorewa/mx-chain-vm-go v0.0.0-20260707091308-f1850160b988
 
 replace github.com/multiversx/mx-chain-storage-go => github.com/xorewa/mx-chain-storage-go v0.0.0-20260630162005-120dc6b184cb
 
@@ -238,7 +238,7 @@ replace github.com/multiversx/mx-chain-vm-v1_2-go => github.com/xorewa/mx-chain-
 
 replace github.com/multiversx/mx-chain-vm-v1_3-go => github.com/xorewa/mx-chain-vm-v1_3-go v0.0.0-20260707084605-cfcf95379f7b
 
-replace github.com/multiversx/mx-chain-vm-v1_4-go => github.com/xorewa/mx-chain-vm-v1_4-go v0.0.0-20260707084605-602deb486101
+replace github.com/multiversx/mx-chain-vm-v1_4-go => github.com/xorewa/mx-chain-vm-v1_4-go v0.0.0-20260707091309-4af7a3210673
 
 replace github.com/multiversx/mx-components-big-int => github.com/xorewa/mx-components-big-int v0.0.0-20260507133911-536f4799b94f
 
