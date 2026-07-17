@@ -207,7 +207,7 @@ require (
 
 // Pin every NewArc dependency to the reviewed xorewa branch so the
 // simulator is no longer built from the old publication path.
-replace github.com/multiversx/mx-chain-proxy-go => github.com/xorewa/mx-chain-proxy-go v0.0.0-20260717062144-9eb3348ebc31
+replace github.com/multiversx/mx-chain-proxy-go => github.com/xorewa/mx-chain-proxy-go v0.0.0-20260717064145-080f744e586e
 
 // Pin every transitive multiversx dep to the xorewa NewArc branches
 // so the entire build aligns on the DRWA-aware fork. The
@@ -216,11 +216,11 @@ replace github.com/multiversx/mx-chain-proxy-go => github.com/xorewa/mx-chain-pr
 // the core-go it consumes; both must therefore come from xorewa.
 replace github.com/multiversx/mx-chain-core-go => github.com/xorewa/mx-chain-core-go v0.0.0-20260622185646-a558edf5ceda
 
-replace github.com/multiversx/mx-chain-go => github.com/xorewa/mx-chain-go v0.0.0-20260717062213-c30fbb10b2c9
+replace github.com/multiversx/mx-chain-go => github.com/xorewa/mx-chain-go v0.0.0-20260717065447-52c862fb3c77
 
 replace github.com/multiversx/mx-chain-vm-common-go => github.com/xorewa/mx-chain-vm-common-go v0.0.0-20260717055012-49796c0ad51d
 
-replace github.com/multiversx/mx-chain-vm-go => github.com/xorewa/mx-chain-vm-go v0.0.0-20260717062834-db503765b7d5
+replace github.com/multiversx/mx-chain-vm-go => github.com/xorewa/mx-chain-vm-go v0.0.0-20260717064145-153256ba92bd
 
 replace github.com/multiversx/mx-chain-storage-go => github.com/xorewa/mx-chain-storage-go v0.0.0-20260630162005-120dc6b184cb
 
@@ -238,7 +238,7 @@ replace github.com/multiversx/mx-chain-vm-v1_2-go => github.com/xorewa/mx-chain-
 
 replace github.com/multiversx/mx-chain-vm-v1_3-go => github.com/xorewa/mx-chain-vm-v1_3-go v0.0.0-20260717063029-07ac82990531
 
-replace github.com/multiversx/mx-chain-vm-v1_4-go => github.com/xorewa/mx-chain-vm-v1_4-go v0.0.0-20260717063029-55f60305c964
+replace github.com/multiversx/mx-chain-vm-v1_4-go => github.com/xorewa/mx-chain-vm-v1_4-go v0.0.0-20260717064145-40d5b87029e2
 
 replace github.com/multiversx/mx-components-big-int => github.com/xorewa/mx-components-big-int v0.0.0-20260507133911-536f4799b94f
 
