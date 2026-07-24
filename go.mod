@@ -207,7 +207,7 @@ require (
 
 // Pin every NewArc dependency to the reviewed xorewa branch so the
 // simulator is no longer built from the old publication path.
-replace github.com/multiversx/mx-chain-proxy-go => github.com/xorewa/mx-chain-proxy-go v0.0.0-20260717064145-080f744e586e
+replace github.com/multiversx/mx-chain-proxy-go => github.com/xorewa/mx-chain-proxy-go v0.0.0-20260723154123-f76d4f150f52
 
 // Pin every transitive multiversx dep to the xorewa NewArc branches
 // so the entire build aligns on the DRWA-aware fork. The
