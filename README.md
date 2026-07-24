@@ -18,6 +18,34 @@ Blocks are promptly generated through a dedicated endpoint whenever users initia
 - Extra endpoints for specific operations.
 - Simulates the behavior of a local testnet without a consensus group.
 
+## Dharitri 600 ms Supernova-from-genesis profile
+
+The default simulator profile is unchanged. The opt-in Dharitri profile is for
+new-genesis qualification only; it uses a 600 ms round duration, 2,000 rounds
+per epoch, and the xorewa configuration sources.
+
+After the simulator is pinned to an `mx-chain-go` revision containing the
+Supernova-from-genesis schedule promotion, run the generic timing profile with:
+
+```bash
+go run ./cmd/chainsimulator \
+  --config ./cmd/chainsimulator/config/dharitri-supernova-genesis.toml \
+  --node-override-config ./cmd/chainsimulator/config/nodeOverrideDharitriSupernovaGenesis.toml
+```
+
+For DRWA simulator qualification, preserve the existing DRWA bootstrap override
+and load the Dharitri timing override last:
+
+```bash
+go run ./cmd/chainsimulator \
+  --config ./cmd/chainsimulator/config/dharitri-supernova-genesis.toml \
+  --node-override-config ./cmd/chainsimulator/config/nodeOverrideDefault.toml,./cmd/chainsimulator/config/nodeOverrideDharitriSupernovaGenesis.toml
+```
+
+This profile does not make a production deployment profile. The legacy
+`mx-chain-devnet-config` schema must first be migrated from a current,
+version-matched node configuration and independently boot-tested.
+
 
 ## API Documentation
 

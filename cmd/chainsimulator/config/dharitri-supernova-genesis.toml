@@ -1,0 +1,23 @@
+# Dharitri Supernova-from-genesis simulator profile.
+#
+# This is an opt-in local qualification profile. It does not modify the
+# existing default simulator profile or any public MultiversX configuration.
+[config]
+    [config.simulator]
+        server-port = 8085
+        num-of-shards = 3
+        round-duration-in-milliseconds = 600
+        rounds-per-epoch = 2000
+        initial-round = 0
+        initial-epoch = 0
+        initial-nonce = 0
+        mx-chain-go-repo = "https://github.com/xorewa/mx-chain-go"
+        mx-chain-proxy-go-repo = "https://github.com/xorewa/mx-chain-proxy-go"
+    [config.logs]
+        log-file-life-span-in-mb = 1024
+        log-file-life-span-in-sec = 432000
+        log-file-prefix = "dharitri-supernova-simulator"
+        logs-path = "logs"
+    [config.blocks-generator]
+        auto-generate-blocks = false
+        block-time-in-milliseconds = 600

@@ -1,0 +1,11 @@
+# Makes the bundled modern node configuration run with Supernova semantics at
+# genesis. mx-chain-go promotes each existing post-Supernova schedule to
+# epoch/round zero; this file only selects that supported mode.
+#
+# Use this file by itself for generic timing qualification. For DRWA simulator
+# qualification, load nodeOverrideDefault.toml first, then this file so the
+# timing profile wins where the two settings overlap.
+OverridableConfigTomlValues = [
+    { File = "enableEpochs.toml", Path = "EnableEpochs.AndromedaEnableEpoch", Value = 0 },
+    { File = "enableEpochs.toml", Path = "EnableEpochs.SupernovaEnableEpoch", Value = 0 }
+]

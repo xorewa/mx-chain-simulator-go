@@ -97,6 +97,25 @@ func TestBundledChainSimulatorConfigsContainSupernovaRequiredFields(t *testing.T
 	require.NotZero(t, proxyCfg.GeneralSettings.BlockCacheDurationSec)
 }
 
+func TestDharitriSupernovaGenesisProfile(t *testing.T) {
+	t.Parallel()
+
+	profile := Config{}
+	mustLoadToml(t, filepath.Join("..", "cmd", "chainsimulator", "config", "dharitri-supernova-genesis.toml"), &profile)
+	require.Equal(t, 600, profile.Config.Simulator.RoundDurationInMs)
+	require.Equal(t, 2000, profile.Config.Simulator.RoundsPerEpoch)
+	require.Equal(t, uint64(600), profile.Config.BlocksGenerator.BlockTimeInMs)
+	require.Equal(t, "https://github.com/xorewa/mx-chain-go", profile.Config.Simulator.MxChainRepo)
+	require.Equal(t, "https://github.com/xorewa/mx-chain-proxy-go", profile.Config.Simulator.MxProxyRepo)
+
+	override := OverrideConfigs{}
+	mustLoadToml(t, filepath.Join("..", "cmd", "chainsimulator", "config", "nodeOverrideDharitriSupernovaGenesis.toml"), &override)
+	require.Equal(t, []chainConfig.OverridableConfig{
+		{File: "enableEpochs.toml", Path: "EnableEpochs.AndromedaEnableEpoch", Value: int64(0)},
+		{File: "enableEpochs.toml", Path: "EnableEpochs.SupernovaEnableEpoch", Value: int64(0)},
+	}, override.OverridableConfigTomlValues)
+}
+
 func mustLoadToml(t *testing.T, filename string, target interface{}) {
 	t.Helper()
 
