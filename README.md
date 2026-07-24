@@ -30,17 +30,41 @@ Supernova-from-genesis schedule promotion, run the generic timing profile with:
 ```bash
 go run ./cmd/chainsimulator \
   --config ./cmd/chainsimulator/config/dharitri-supernova-genesis.toml \
-  --node-override-config ./cmd/chainsimulator/config/nodeOverrideDharitriSupernovaGenesis.toml
+  --node-override-config ./cmd/chainsimulator/config/nodeOverrideDharitriSupernovaGenesis.toml \
+  --skip-default-node-override \
+  --node-configs ../mx-chain-go/cmd/node/config \
+  --proxy-configs ./cmd/chainsimulator/config/proxy/config \
+  --skip-configs-download
 ```
 
-For DRWA simulator qualification, preserve the existing DRWA bootstrap override
-and load the Dharitri timing override last:
+The `--node-configs` directory is deliberately the canonical configuration
+from the exact `mx-chain-go` checkout used by the simulator. Header V3 depends
+on configuration sections (including execution-result storage) that are not
+present in the simulator's legacy bundled copy. This source-tree command is
+therefore a version-matched qualification path, not a packaging contract.
+
+For DRWA simulator qualification, add a separate reviewed overlay that contains
+the actual local deployment addresses and authorized native-caller mappings:
 
 ```bash
 go run ./cmd/chainsimulator \
   --config ./cmd/chainsimulator/config/dharitri-supernova-genesis.toml \
-  --node-override-config ./cmd/chainsimulator/config/nodeOverrideDefault.toml,./cmd/chainsimulator/config/nodeOverrideDharitriSupernovaGenesis.toml
+  --node-override-config ./path/to/reviewed-local-drwa-overlay.toml,./cmd/chainsimulator/config/nodeOverrideDharitriSupernovaGenesis.toml \
+  --skip-default-node-override \
+  --node-configs ../mx-chain-go/cmd/node/config \
+  --proxy-configs ./cmd/chainsimulator/config/proxy/config \
+  --skip-configs-download
 ```
+
+`--skip-configs-download` is deliberate for source-tree qualification: the
+checked-out `mx-chain-go` configuration and the simulator proxy configuration
+are the reviewed xorewa inputs for this profile. A packaged release needs a
+separately versioned configuration bundle and an equivalence test before it can
+use the normal config-fetch mechanism.
+
+`--skip-default-node-override` ensures these explicit profiles do not inherit
+the simulator's legacy default bootstrap override, which contains placeholder
+DRWA caller values. It does not change the default simulator behavior.
 
 This profile does not make a production deployment profile. The legacy
 `mx-chain-devnet-config` schema must first be migrated from a current,

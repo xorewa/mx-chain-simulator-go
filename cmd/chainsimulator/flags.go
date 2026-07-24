@@ -9,6 +9,10 @@ import (
 )
 
 const nodeOverrideDefaultFilename = "nodeOverrideDefault.toml"
+
+// nodeOverrideDefaultPath is intentionally relative to the documented
+// `cmd/chainsimulator` working directory. Keep the legacy default unchanged;
+// source-tree qualification profiles supply their configuration explicitly.
 const nodeOverrideDefaultPath = "./config/" + nodeOverrideDefaultFilename
 
 var (
@@ -22,6 +26,10 @@ var (
 		Usage: "The node's override configuration file to load. Can define multiple files separated by comma. " +
 			"Example: ./config/override1.toml,./config/override2.toml and so on",
 		Value: nodeOverrideDefaultPath,
+	}
+	skipDefaultNodeOverride = cli.BoolFlag{
+		Name:  "skip-default-node-override",
+		Usage: "Do not prepend the legacy default node override. Use this for an explicitly configured profile that must not inherit its bootstrap settings.",
 	}
 	logLevel = cli.StringFlag{
 		Name: "log-level",

@@ -628,8 +628,8 @@ github.com/xorewa/mx-chain-crypto-go v0.0.0-20260630162109-4c1e9574b7d4 h1:r8mHw
 github.com/xorewa/mx-chain-crypto-go v0.0.0-20260630162109-4c1e9574b7d4/go.mod h1:B3Nu3ff02aV1XvCzmHzxSxQnaaFpukUwFqup6JCtCvs=
 github.com/xorewa/mx-chain-es-indexer-go v0.0.0-20260723153919-73ae973bf328 h1:L5v/tdrvfVQUZbRUMafwDWIPOyIjK2ZseAxU7IetyFo=
 github.com/xorewa/mx-chain-es-indexer-go v0.0.0-20260723153919-73ae973bf328/go.mod h1:9R7G5lTu5L3ZvfRWekok74d9tASefVx4R9Ca4vurmjI=
-github.com/xorewa/mx-chain-go v0.0.0-20260724020858-a96006059263 h1:Vb3cNSt4KTcpGEHGDh/WTNIdpsn4lV1LW/2YR1yaPX8=
-github.com/xorewa/mx-chain-go v0.0.0-20260724020858-a96006059263/go.mod h1:FUHO+MFQfYVnVgZvTV+lhZuWsBquYpwoxmpYJ0KHI3s=
+github.com/xorewa/mx-chain-go v0.0.0-20260724063331-39830046e675 h1:TmL/XMWsT+C+TO0zgXCmppK+G5i0f1yEn1g8KGKptmA=
+github.com/xorewa/mx-chain-go v0.0.0-20260724063331-39830046e675/go.mod h1:FUHO+MFQfYVnVgZvTV+lhZuWsBquYpwoxmpYJ0KHI3s=
 github.com/xorewa/mx-chain-logger-go v0.0.0-20260630161826-04c5818227ed h1:V5EqfNqAzwcdgPxpXkC4C0sIzT6FttNRY3zABiQsghc=
 github.com/xorewa/mx-chain-logger-go v0.0.0-20260630161826-04c5818227ed/go.mod h1:tYYGwoIUG2TVmhyXI4Zp9s3VWzxqEUgBhjXAMx3vzVc=
 github.com/xorewa/mx-chain-proxy-go v0.0.0-20260723154123-f76d4f150f52 h1:rc4d8qbEDtP7/1umSd/HqIAxQnLqBSUxFu3LFqNXc6Y=

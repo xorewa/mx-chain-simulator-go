@@ -62,6 +62,7 @@ func main() {
 	app.Flags = []cli.Flag{
 		configurationFile,
 		nodeOverrideConfigurationFile,
+		skipDefaultNodeOverride,
 		logLevel,
 		logSaveFile,
 		disableAnsiColor,
@@ -431,6 +432,9 @@ func isLoopbackBindHost(host string) bool {
 
 func determineOverrideConfigFiles(ctx *cli.Context) []string {
 	overrideFiles := strings.Split(ctx.GlobalString(nodeOverrideConfigurationFile.Name), overrideConfigFilesSeparator)
+	if ctx.GlobalBool(skipDefaultNodeOverride.Name) {
+		return overrideFiles
+	}
 
 	for _, filename := range overrideFiles {
 		if strings.Contains(filename, nodeOverrideDefaultFilename) {
