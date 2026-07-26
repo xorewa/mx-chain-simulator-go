@@ -2,15 +2,19 @@ name: Tests
 
 on:
   push:
-    branches: [ main, feat/*, rc/* ]
+    branches: [ NewArc ]
   pull_request:
-    branches: [ main, feat/*, rc/* ]
+    branches: [ NewArc ]
 
+permissions:
+  contents: read
 
 jobs:
   test:
     name: Unit
     runs-on: ubuntu-latest
+    env:
+      GONOSUMDB: github.com/xorewa/*
     steps:
       - name: Set up Go 1.x
         uses: actions/setup-go@v5

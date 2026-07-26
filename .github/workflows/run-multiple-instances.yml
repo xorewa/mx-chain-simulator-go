@@ -2,31 +2,31 @@ name: Run multiple simulators
 
 on:
   push:
-    branches: [ main, feat/*, rc/* ]
+    branches: [ NewArc ]
   pull_request:
-    branches: [ main, feat/*, rc/* ]
+    branches: [ NewArc ]
+
+permissions:
+  contents: read
 
 jobs:
   build:
     name: Run instances
     runs-on: ubuntu-latest
+    env:
+      GONOSUMDB: github.com/xorewa/*
     steps:
       - name: Set up Go 1.x
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v5
         with:
           go-version: 1.23.6
         id: go
 
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Get dependencies
-        run: |
-          go get -v -t -d ./...
-          if [ -f Gopkg.toml ]; then
-              curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-              dep ensure
-          fi
+        run: go mod download
       - name: Run multiple instances
         run: |
           cd cmd/chainsimulator 

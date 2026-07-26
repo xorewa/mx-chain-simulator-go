@@ -2,15 +2,20 @@ name: Run examples
 
 on:
   push:
-    branches: [ main, feat/*, rc/* ]
+    branches: [ NewArc ]
   pull_request:
-    branches: [ main, feat/*, rc/* ]
+    branches: [ NewArc ]
+
+permissions:
+  contents: read
 
 
 jobs:
   test:
     name: Examples
     runs-on: ubuntu-latest
+    env:
+      GONOSUMDB: github.com/xorewa/*
     steps:
       - name: Check out code
         uses: actions/checkout@v4
