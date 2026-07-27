@@ -8,7 +8,7 @@ from multiversx_sdk import (ProxyNetworkProvider,
                             TransactionsFactoryConfig, UserSecretKey)
 
 SIMULATOR_URL = "http://localhost:8085"
-GENERATE_BLOCKS_URL = "/simulator/generate-blocks"
+GENERATE_BLOCKS_URL = "simulator/generate-blocks"
 GENERATE_BLOCKS_UNTIL_EPOCH_REACHED_URL = "simulator/generate-blocks-until-epoch-reached"
 GENERATE_BLOCKS_UNTIL_TX_PROCESSED = "simulator/generate-blocks-until-transaction-processed"
 
@@ -93,8 +93,10 @@ def main():
     if status.status != "pending":
         sys.exit(f"incorrect status of transaction: expected->pending, received->{status}")
 
-    provider.do_post_generic(f"{GENERATE_BLOCKS_URL}/3", {})
-    status = status = provider.get_transaction_status(tx_hash)
+    # The issuance failure is delivered asynchronously across shards. Wait for
+    # the simulator's processed status instead of assuming a fixed block count.
+    provider.do_post_generic(f"{GENERATE_BLOCKS_UNTIL_TX_PROCESSED}/{tx_hash.hex()}", {})
+    status = provider.get_transaction_status(tx_hash)
     if status.status != "fail":
         sys.exit(f"incorrect status of transaction: expected->fail, received->{status}")
 

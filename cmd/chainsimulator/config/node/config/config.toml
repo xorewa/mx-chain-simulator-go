@@ -932,6 +932,9 @@
 [BlockSizeThrottleConfig]
     MinSizeInBytes = 104857 # 104857 is 10% from 1MB
     MaxSizeInBytes = 943718 # 943718 is 90% from 1MB
+    # Reserve the same execution-result budget as the canonical node config.
+    # A zero value prevents Header V3 from including any execution result.
+    MaxExecResSizeInBytes = 104857
 
 [VirtualMachine]
     [VirtualMachine.Execution]

@@ -70,6 +70,7 @@ func TestBundledChainSimulatorConfigsContainSupernovaRequiredFields(t *testing.T
 	require.NotZero(t, nodeConfig.ExecutedMiniBlocksCache.Type)
 	require.NotZero(t, nodeConfig.DirectSentTransactions.CacheSpanInSec)
 	require.NotZero(t, nodeConfig.DirectSentTransactions.CacheExpiryInSec)
+	require.Equal(t, uint32(104857), nodeConfig.BlockSizeThrottleConfig.MaxExecResSizeInBytes)
 	require.NotZero(t, nodeConfig.ExecutionResultInclusionEstimator.SafetyMargin)
 	require.NotZero(t, nodeConfig.ExecutionResultInclusionEstimator.MaxResultsPerBlock)
 

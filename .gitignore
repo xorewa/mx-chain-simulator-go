@@ -12,6 +12,7 @@
 # python stuff
 __pycache__/
 venv/
+.venv/
 .idea/
 .pytest_cache/
 

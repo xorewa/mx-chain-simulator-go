@@ -1,13 +1,20 @@
 #!/bin/bash
 
 CHAIN_SIMULATOR_URL=http://localhost:8085
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PYTHON_BIN="${PYTHON_BIN:-${SCRIPT_DIR}/.venv/bin/python}"
 
 # this will stop the script execution if a command returns an error
-set -e
+set -euo pipefail
+
+if [ ! -x "${PYTHON_BIN}" ]; then
+    echo "Error: Python environment not found at '${PYTHON_BIN}'. Run install-python-deps.sh first."
+    exit 1
+fi
 
 run_python_script() {
     pushd "$1" || return
-    python3 "$2"
+    "${PYTHON_BIN}" "$2"
     popd || return
 }
 
