@@ -1018,6 +1018,7 @@ github.com/xorewa/mx-chain-go v0.0.0-20260726082015-7daaf79d7a4a/go.mod h1:FUHO+
 github.com/xorewa/mx-chain-go v0.0.0-20260804095859-03b2fde5546d h1:hh5bIWnx2OnmcJkqGdDK5//LGMFx9R4pJnS520J+E9o=
 github.com/xorewa/mx-chain-go v0.0.0-20260804095859-03b2fde5546d/go.mod h1:/06CdM/2OkxRDajfDU1Anu4XpY8ll1JAtnGN6rrhlRY=
 github.com/xorewa/mx-chain-go v0.0.0-20260804110756-155ac73e0bba/go.mod h1:9fYblN0W0lvuvfcSHSaMcN8Tajplz82Sb95ZSuWHuZs=
+github.com/xorewa/mx-chain-go v0.0.0-20260804115311-09d256531d6d/go.mod h1:3KFfuRoQZvVd9m24aGWqA9nNfFfAe++IhY8LNaFql2c=
 github.com/xorewa/mx-chain-logger-go v0.0.0-20260726053317-c1b77dfb4fe7 h1:x7d3G62tPPffWOEyS5LU07tGRDL+CvmsOOlo0wkR3Xg=
 github.com/xorewa/mx-chain-logger-go v0.0.0-20260726053317-c1b77dfb4fe7/go.mod h1:lbbxLl4p1Z0ZvymL/8sqL/8ixRjD2RG+6jdnye7nZMM=
 github.com/xorewa/mx-chain-logger-go v0.0.0-20260801081807-1372e2ba679d/go.mod h1:uI9bsnBmBN11NAwKCntrQ1GVwoo/p4b/O7ta4BD1aZg=
