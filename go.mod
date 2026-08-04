@@ -220,7 +220,7 @@ require (
 
 // Pin every NewArc dependency to the reviewed xorewa branch so the
 // simulator is no longer built from the old publication path.
-replace github.com/multiversx/mx-chain-proxy-go => github.com/xorewa/mx-chain-proxy-go v0.0.0-20260726081042-6685c6bfc240
+replace github.com/multiversx/mx-chain-proxy-go => github.com/xorewa/mx-chain-proxy-go v0.0.0-20260804110756-16358ffb322b
 
 // Pin every transitive multiversx dep to the xorewa NewArc branches
 // so the entire build aligns on the DRWA-aware fork. The
@@ -229,29 +229,29 @@ replace github.com/multiversx/mx-chain-proxy-go => github.com/xorewa/mx-chain-pr
 // the core-go it consumes; both must therefore come from xorewa.
 replace github.com/multiversx/mx-chain-core-go => github.com/xorewa/mx-chain-core-go v0.0.0-20260731080906-2ae724dbfeb1
 
-replace github.com/multiversx/mx-chain-go => github.com/xorewa/mx-chain-go v0.0.0-20260804095859-03b2fde5546d
+replace github.com/multiversx/mx-chain-go => github.com/xorewa/mx-chain-go v0.0.0-20260804110756-155ac73e0bba
 
-replace github.com/multiversx/mx-chain-vm-common-go => github.com/xorewa/mx-chain-vm-common-go v0.0.0-20260726054711-b42eb0d74511
+replace github.com/multiversx/mx-chain-vm-common-go => github.com/xorewa/mx-chain-vm-common-go v0.0.0-20260801091718-772b8d777a0c
 
-replace github.com/multiversx/mx-chain-vm-go => github.com/xorewa/mx-chain-vm-go v0.0.0-20260726070209-712324a0c1c6
+replace github.com/multiversx/mx-chain-vm-go => github.com/xorewa/mx-chain-vm-go v0.0.0-20260801181155-4d3459bc0c5d
 
-replace github.com/multiversx/mx-chain-storage-go => github.com/xorewa/mx-chain-storage-go v0.0.0-20260726053940-e860aa48f64d
+replace github.com/multiversx/mx-chain-storage-go => github.com/xorewa/mx-chain-storage-go v0.0.0-20260801083748-7b50e0213c4d
 
-replace github.com/multiversx/mx-chain-communication-go => github.com/xorewa/mx-chain-communication-go v0.0.0-20260726075341-d703206be848
+replace github.com/multiversx/mx-chain-communication-go => github.com/xorewa/mx-chain-communication-go v0.0.0-20260801092431-483cc64b4e4b
 
-replace github.com/multiversx/mx-chain-crypto-go => github.com/xorewa/mx-chain-crypto-go v0.0.0-20260726053711-589bae1ad07e
+replace github.com/multiversx/mx-chain-crypto-go => github.com/xorewa/mx-chain-crypto-go v0.0.0-20260801082855-aa434576d3a5
 
 replace github.com/multiversx/mx-chain-es-indexer-go => github.com/xorewa/mx-chain-es-indexer-go v0.0.0-20260804110617-40a39e2ab1dc
 
-replace github.com/multiversx/mx-chain-logger-go => github.com/xorewa/mx-chain-logger-go v0.0.0-20260726053317-c1b77dfb4fe7
+replace github.com/multiversx/mx-chain-logger-go => github.com/xorewa/mx-chain-logger-go v0.0.0-20260801081807-1372e2ba679d
 
-replace github.com/multiversx/mx-chain-scenario-go => github.com/xorewa/mx-chain-scenario-go v0.0.0-20260726132641-5487574027fa
+replace github.com/multiversx/mx-chain-scenario-go => github.com/xorewa/mx-chain-scenario-go v0.0.0-20260801095210-b1a5df7767c7
 
-replace github.com/multiversx/mx-chain-vm-v1_2-go => github.com/xorewa/mx-chain-vm-v1_2-go v0.0.0-20260726060857-436b274fb46a
+replace github.com/multiversx/mx-chain-vm-v1_2-go => github.com/xorewa/mx-chain-vm-v1_2-go v0.0.0-20260801124047-81895e71953d
 
-replace github.com/multiversx/mx-chain-vm-v1_3-go => github.com/xorewa/mx-chain-vm-v1_3-go v0.0.0-20260726061509-ecb6159764db
+replace github.com/multiversx/mx-chain-vm-v1_3-go => github.com/xorewa/mx-chain-vm-v1_3-go v0.0.0-20260801130252-cb991e9563dd
 
-replace github.com/multiversx/mx-chain-vm-v1_4-go => github.com/xorewa/mx-chain-vm-v1_4-go v0.0.0-20260726062514-ce454f274127
+replace github.com/multiversx/mx-chain-vm-v1_4-go => github.com/xorewa/mx-chain-vm-v1_4-go v0.0.0-20260802050444-2001a4eac70e
 
 replace github.com/multiversx/mx-components-big-int => github.com/xorewa/mx-components-big-int v0.0.0-20260726052905-9be93c58791d
 
