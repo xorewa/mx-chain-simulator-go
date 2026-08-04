@@ -1024,6 +1024,7 @@ github.com/xorewa/mx-chain-logger-go v0.0.0-20260801081807-1372e2ba679d/go.mod h
 github.com/xorewa/mx-chain-proxy-go v0.0.0-20260726081042-6685c6bfc240 h1:WaDM5AzLT/SUjexGT6420LFrUT7VUw/viy/t/L+m6Pg=
 github.com/xorewa/mx-chain-proxy-go v0.0.0-20260726081042-6685c6bfc240/go.mod h1:6KxUIQtWU3a8VBXhqpeHC8Wrnv0MmZ0SR38R3CXySNI=
 github.com/xorewa/mx-chain-proxy-go v0.0.0-20260804110756-16358ffb322b/go.mod h1:Um41Ga0Lm0lbhycE1bMjg2i9hIOjVJyzo4ExHUgtiRw=
+github.com/xorewa/mx-chain-proxy-go v0.0.0-20260804115208-257877400603/go.mod h1:GeUXu9W81GfYQh8NbsoU5NIeiaoDiKAgDTwEPeC9yys=
 github.com/xorewa/mx-chain-scenario-go v0.0.0-20260726132641-5487574027fa h1:p1OtkZJHEFPBcVGmNCaZmxqhIUPVjcgqROdUbenkTSc=
 github.com/xorewa/mx-chain-scenario-go v0.0.0-20260726132641-5487574027fa/go.mod h1:BG6IkxC21vEXHSK9q1loQrXmGXahCE4egNhO2sxRyDw=
 github.com/xorewa/mx-chain-scenario-go v0.0.0-20260801095210-b1a5df7767c7/go.mod h1:e0FXVD8cNgi8DnlXeX5ysVn8JKCvJaP24Gz24AXFCkM=
@@ -1036,6 +1037,7 @@ github.com/xorewa/mx-chain-vm-common-go v0.0.0-20260801091718-772b8d777a0c/go.mo
 github.com/xorewa/mx-chain-vm-go v0.0.0-20260726070209-712324a0c1c6 h1:pcjkrnhqNTnB1MDWUcvKykz9y9uGCjure69pw1nRHQs=
 github.com/xorewa/mx-chain-vm-go v0.0.0-20260726070209-712324a0c1c6/go.mod h1:aDZIHlWXjLIIQU8c14FkVkgMhZSwBZwmbva43FqhNAM=
 github.com/xorewa/mx-chain-vm-go v0.0.0-20260801181155-4d3459bc0c5d/go.mod h1:NWtHNHgXk0YQAEqA/U4CCW0oWhpM52UEuUakfPK4gFs=
+github.com/xorewa/mx-chain-vm-go v0.0.0-20260804115208-d94f6cfaebc8/go.mod h1:a6dlwqW0pbWwHLrzSxxrxXj7q2gHDDTFe/jRQZq2ERE=
 github.com/xorewa/mx-chain-vm-v1_2-go v0.0.0-20260726060857-436b274fb46a h1:l/TykvrXce/KSBQ4aZUB7U5xk+LyxNtbIYLogAFxBs8=
 github.com/xorewa/mx-chain-vm-v1_2-go v0.0.0-20260726060857-436b274fb46a/go.mod h1:qLZMtFo5JI0S6MMrXwVIvh+Fndv01Uw+PFN1hevKsio=
 github.com/xorewa/mx-chain-vm-v1_2-go v0.0.0-20260801124047-81895e71953d/go.mod h1:o5MKylxHGz60fXzjIV4QDe+EmfxTM1/oIAQt0wfq8hg=

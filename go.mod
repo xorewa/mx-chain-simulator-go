@@ -220,7 +220,7 @@ require (
 
 // Pin every NewArc dependency to the reviewed xorewa branch so the
 // simulator is no longer built from the old publication path.
-replace github.com/multiversx/mx-chain-proxy-go => github.com/xorewa/mx-chain-proxy-go v0.0.0-20260804110756-16358ffb322b
+replace github.com/multiversx/mx-chain-proxy-go => github.com/xorewa/mx-chain-proxy-go v0.0.0-20260804115208-257877400603
 
 // Pin every transitive multiversx dep to the xorewa NewArc branches
 // so the entire build aligns on the DRWA-aware fork. The
@@ -233,7 +233,7 @@ replace github.com/multiversx/mx-chain-go => github.com/xorewa/mx-chain-go v0.0.
 
 replace github.com/multiversx/mx-chain-vm-common-go => github.com/xorewa/mx-chain-vm-common-go v0.0.0-20260801091718-772b8d777a0c
 
-replace github.com/multiversx/mx-chain-vm-go => github.com/xorewa/mx-chain-vm-go v0.0.0-20260801181155-4d3459bc0c5d
+replace github.com/multiversx/mx-chain-vm-go => github.com/xorewa/mx-chain-vm-go v0.0.0-20260804115208-d94f6cfaebc8
 
 replace github.com/multiversx/mx-chain-storage-go => github.com/xorewa/mx-chain-storage-go v0.0.0-20260801083748-7b50e0213c4d
 
