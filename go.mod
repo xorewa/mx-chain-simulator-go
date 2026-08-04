@@ -1,6 +1,6 @@
 module github.com/multiversx/mx-chain-simulator-go
 
-go 1.26
+go 1.26.2
 
 require (
 	github.com/gin-gonic/gin v1.10.0
