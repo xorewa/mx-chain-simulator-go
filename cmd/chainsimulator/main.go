@@ -33,10 +33,12 @@ import (
 const timeToAllowProxyToStart = time.Millisecond * 10
 const overrideConfigFilesSeparator = ","
 const tempDirPattern = "mx-chainsimulator-*"
+const mxChainNodeModulePath = "github.com/multiversx/mx-chain-go"
 
 var (
-	log          = logger.GetOrCreate("chainsimulator")
-	helpTemplate = `NAME:
+	log                                           = logger.GetOrCreate("chainsimulator")
+	errAutomaticNodeConfigDownloadWithReplacement = errors.New("automatic node config download is unsafe when mx-chain-go is replaced; provide a version-matched node configuration directory and use --skip-configs-download")
+	helpTemplate                                  = `NAME:
    {{.Name}} - {{.Usage}}
 USAGE:
    {{.HelpName}} {{if .VisibleFlags}}[global options]{{end}}
@@ -61,6 +63,7 @@ func main() {
 	app.Flags = []cli.Flag{
 		configurationFile,
 		nodeOverrideConfigurationFile,
+		skipDefaultNodeOverride,
 		logLevel,
 		logSaveFile,
 		disableAnsiColor,
@@ -345,6 +348,10 @@ func fetchConfigs(skipDownload bool, cfg config.Config, nodeConfigs, proxyConfig
 		log.Warn(`flag "skip-configs-download" has been provided, if the configs are missing, then simulator will not start`)
 		return nil
 	}
+	err := validateAutomaticNodeConfigDownload(buildInfo)
+	if err != nil {
+		return err
+	}
 
 	gitFetcher := git.NewGitFetcher()
 	configsFetcher, err := configs.NewConfigsFetcher(cfg.Config.Simulator.MxChainRepo, cfg.Config.Simulator.MxProxyRepo, gitFetcher)
@@ -368,7 +375,10 @@ func loadMainConfig(filepath string) (config.Config, error) {
 }
 
 func determineOverrideConfigFiles(ctx *cli.Context) []string {
-	overrideFiles := strings.Split(ctx.GlobalString(nodeOverrideConfigurationFile.Name), overrideConfigFilesSeparator)
+	overrideFiles := splitOverrideConfigFiles(ctx.GlobalString(nodeOverrideConfigurationFile.Name))
+	if ctx.GlobalBool(skipDefaultNodeOverride.Name) {
+		return removeBundledDefaultOverride(overrideFiles)
+	}
 
 	for _, filename := range overrideFiles {
 		if strings.Contains(filename, nodeOverrideDefaultFilename) {
@@ -377,6 +387,49 @@ func determineOverrideConfigFiles(ctx *cli.Context) []string {
 	}
 
 	return append([]string{nodeOverrideDefaultPath}, overrideFiles...)
+}
+
+func splitOverrideConfigFiles(value string) []string {
+	parts := strings.Split(value, overrideConfigFilesSeparator)
+	files := make([]string, 0, len(parts))
+	for _, part := range parts {
+		filename := strings.TrimSpace(part)
+		if filename != "" {
+			files = append(files, filename)
+		}
+	}
+
+	return files
+}
+
+func removeBundledDefaultOverride(files []string) []string {
+	result := make([]string, 0, len(files))
+	for _, filename := range files {
+		if filename == nodeOverrideDefaultPath {
+			continue
+		}
+		result = append(result, filename)
+	}
+
+	return result
+}
+
+func hasModuleReplacement(info *debug.BuildInfo, modulePath string) bool {
+	for _, dep := range info.Deps {
+		if dep.Path == modulePath {
+			return dep.Replace != nil
+		}
+	}
+
+	return false
+}
+
+func validateAutomaticNodeConfigDownload(info *debug.BuildInfo) error {
+	if hasModuleReplacement(info, mxChainNodeModulePath) {
+		return errAutomaticNodeConfigDownloadWithReplacement
+	}
+
+	return nil
 }
 
 func removeANSIColorsForLoggerIfNeeded(disableAnsi bool) error {

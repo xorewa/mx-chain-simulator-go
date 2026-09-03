@@ -23,6 +23,10 @@ var (
 			"Example: ./config/override1.toml,./config/override2.toml and so on",
 		Value: nodeOverrideDefaultPath,
 	}
+	skipDefaultNodeOverride = cli.BoolFlag{
+		Name:  "skip-default-node-override",
+		Usage: "Do not apply the bundled development override. Use with an explicit, version-matched node configuration directory.",
+	}
 	logLevel = cli.StringFlag{
 		Name: "log-level",
 		Usage: "This flag specifies the logger `level(s)`. It can contain multiple comma-separated value. For example" +

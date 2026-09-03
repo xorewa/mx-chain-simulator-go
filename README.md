@@ -11,6 +11,24 @@ this simulator operates without a consensus group, allowing for isolated testing
 By operating without a consensus group, the simulator accelerates block generation, enabling swift system testing of smart contracts. 
 Blocks are promptly generated through a dedicated endpoint whenever users initiate the call, resulting in a more efficient testing environment.
 
+## Production-intent branch
+
+The `drwa/s1-p4-production-intent` branch keeps the official simulator architecture and binds its Go dependency graph to the signed DRWA production-intent node branch. It does not embed provisional DRWA activation values, gas schedules, wallets, or qualification evidence.
+
+For an exact-config run, provide a reviewed node configuration directory explicitly and disable both runtime config downloading and the simulator's bundled development override:
+
+```bash
+./chainsimulator \
+  --node-configs /path/to/version-matched/node/config \
+  --proxy-configs /path/to/version-matched/proxy/config \
+  --skip-configs-download \
+  --skip-default-node-override
+```
+
+The program fails closed if automatic node-config downloading is requested while the node module is replaced. This prevents a binary built from the xorewa production-intent node from silently loading configs from an unrelated upstream revision.
+
+The chain simulator remains a development and integration environment. It has no consensus group and uses simulated block generation, so it can cover deterministic transaction, state-transition, epoch-gating, API, and smart-contract checks, but it cannot replace multi-validator consensus, persistence/restart, network-fault, or canonical-finality qualification on a real localnet.
+
 
 ## Features
 
