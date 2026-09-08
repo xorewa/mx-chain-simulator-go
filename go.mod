@@ -2,6 +2,12 @@ module github.com/multiversx/mx-chain-simulator-go
 
 go 1.26
 
+replace github.com/multiversx/mx-chain-go => github.com/xorewa/mx-chain-go v0.0.0-20260908065420-63523ebe963a
+
+replace github.com/multiversx/mx-chain-core-go => github.com/xorewa/mx-chain-core-go v0.0.0-20260908060557-9c0efac6968b
+
+replace github.com/multiversx/mx-chain-vm-common-go => github.com/xorewa/mx-chain-vm-common-go v0.0.0-20260908060924-3380bada397c
+
 require (
 	github.com/btcsuite/websocket v0.0.0-20150119174127-31079b680792
 	github.com/gin-gonic/gin v1.12.0
